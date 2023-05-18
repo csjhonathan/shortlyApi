@@ -18,7 +18,7 @@ class UrlsRepositories
 	listByRef( {urlReference} ){
 		const query = {
 			text : `
-				SELECT urls.id, urls."shortUrl" FROM urls 
+				SELECT * FROM urls 
 				WHERE urls."shortUrl" = $1
 			`,
 			values : [urlReference]

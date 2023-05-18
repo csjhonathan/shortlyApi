@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import urlsRepositories from '../repositories/urls.repositories.js';
+import rankingRepositories from '../repositories/ranking.repositories.js';
 class UrlsControllers 
 {
 	async creat( req, res ){
@@ -30,6 +31,21 @@ class UrlsControllers
 
 		} catch ( error ) {
 			res.status( 500 ).send( {message : error.message} );
+		}
+	}
+
+	async read( req, res ){
+		const {shortUrl : urlReference} = req.params;
+
+		try {
+			const {rows : [shortedUrl]} = await urlsRepositories.listByRef( {urlReference} );
+			if( !shortedUrl ) return res.status( 404 ).send( {message : 'Esta url não existe!'} );
+
+			await rankingRepositories.create( {id : shortedUrl.id } );
+
+			return res.redirect( shortedUrl.url );
+		} catch ( error ) {
+			return res.status( 500 ).send( {message : error.message} );
 		}
 	}
 }
