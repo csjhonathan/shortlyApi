@@ -1,6 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './routes/index.routes.js';
+import chalk from 'chalk';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
@@ -9,4 +13,6 @@ app
 	.use( express.json() )
 	.use( routes );
 
-export default app;
+const PORT = process.env.PORT || 5000;
+	
+app.listen( process.env.PORT , () => console.log( `Server is running on ${chalk.green( `http://localhost:${PORT}` )}` ) );

@@ -13,6 +13,10 @@ class UrlsControllers
 
 			await urlsRepositories.create( {urlReference, url, id} );
 			const {rows : [newUrl]} = await urlsRepositories.listByRef( {urlReference} );
+
+			delete newUrl.access;
+			delete newUrl.createdAt;
+			delete newUrl.creatorId;
       
 			res.status( 201 ).send( newUrl );
 
@@ -34,14 +38,14 @@ class UrlsControllers
 		}
 	}
 
-	async read( req, res ){
+	async open( req, res ){
 		const {shortUrl : urlReference} = req.params;
 
 		try {
 			const {rows : [shortedUrl]} = await urlsRepositories.listByRef( {urlReference} );
 			if( !shortedUrl ) return res.status( 404 ).send( {message : 'Esta url não existe!'} );
 
-			await rankingRepositories.create( {id : shortedUrl.id } );
+			await urlsRepositories.update( {urlReference} );
 
 			return res.redirect( shortedUrl.url );
 		} catch ( error ) {

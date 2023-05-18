@@ -38,6 +38,19 @@ class UrlsRepositories
 
 		return db.query( query );
 	}
+
+	update( {urlReference} ){
+		const query = {
+			text : `
+				UPDATE urls 
+				SET access = access + 1 
+				WHERE urls."shortUrl" = $1
+			`,
+			values : [urlReference]
+		};
+
+		return db.query( query );
+	}
 }
 
 export default new UrlsRepositories;
