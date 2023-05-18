@@ -4,11 +4,10 @@ import { signUpSchema, signInSchema } from '../schemas/auth.schema.js';
 import schemaValidate from '../middlewares/schemas.validate.middleware.js';
 import userExist from '../middlewares/userExist.middleware.js';
 
-const {create} = usersController;
 const usersRouters = Router();
 
-usersRouters.post( '/signup', schemaValidate( signUpSchema ), userExist, create );
-usersRouters.post( '/signin', schemaValidate( signInSchema ) );
+usersRouters.post( '/signup', schemaValidate( signUpSchema ), userExist, usersController.signUp );
+usersRouters.post( '/signin', schemaValidate( signInSchema ), userExist, usersController.signIn );
 usersRouters.get( '/users/:id' );
 
 
