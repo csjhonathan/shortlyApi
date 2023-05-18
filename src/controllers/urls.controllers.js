@@ -25,8 +25,8 @@ class UrlsControllers
 		try {
 		
 			const {rows : [url]} = await urlsRepositories.listById( {id} );
-      
-			res.status( 201 ).send( url );
+			if( !url ) res.status( 404 ).send( {message : 'Esta url não existe!'} );
+			res.status( 200 ).send( url );
 
 		} catch ( error ) {
 			res.status( 500 ).send( {message : error.message} );
