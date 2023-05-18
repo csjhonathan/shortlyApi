@@ -27,13 +27,13 @@ class UrlsRepositories
 		return db.query( query );
 	}
 
-	listById( {id} ){
+	listById( {urlId} ){
 		const query = {
 			text : `
-				SELECT urls.id, urls."shortUrl", urls.url FROM urls 
+				SELECT urls.id, urls."shortUrl", urls.url, urls."creatorId" FROM urls 
 				WHERE urls.id = $1
 			`,
-			values : [id]
+			values : [urlId]
 		};
 
 		return db.query( query );
@@ -47,6 +47,18 @@ class UrlsRepositories
 				WHERE urls."shortUrl" = $1
 			`,
 			values : [urlReference]
+		};
+
+		return db.query( query );
+	}
+
+	delete( {urlId} ){
+		const query = {
+			text : `
+			DELETE FROM urls
+			WHERE id = $1
+			`,
+			values : [urlId]
 		};
 
 		return db.query( query );

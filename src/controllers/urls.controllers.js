@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import urlsRepositories from '../repositories/urls.repositories.js';
-import rankingRepositories from '../repositories/ranking.repositories.js';
+
 class UrlsControllers 
 {
 	async creat( req, res ){
@@ -25,12 +25,15 @@ class UrlsControllers
 		}
 	}
 	async listById( req, res ){
-		const {id} = req.params;
-  
-		try {
+		const {id : urlId} = req.params;
 		
-			const {rows : [url]} = await urlsRepositories.listById( {id} );
-			if( !url ) res.status( 404 ).send( {message : 'Esta url não existe!'} );
+		try {
+
+			const {rows : [url]} = await urlsRepositories.listById( {urlId} );
+
+			if( !url ) return res.status( 404 ).send( {message : 'Esta url não existe!'} );
+
+			delete url.creatorId;
 			res.status( 200 ).send( url );
 
 		} catch ( error ) {
@@ -48,6 +51,22 @@ class UrlsControllers
 			await urlsRepositories.update( {urlReference} );
 
 			return res.redirect( shortedUrl.url );
+		} catch ( error ) {
+			return res.status( 500 ).send( {message : error.message} );
+		}
+	}
+
+	async delete( req, res ){
+		const {id: urlId} = req.params;
+		const {id : userId} = res.locals.user;
+
+		try {
+			const {rows : [url]} = await urlsRepositories.listById( {urlId} );
+
+			if( !url ) return res.status( 404 ).send( {message : 'Esta url não existe!'} );
+			if( url.creatorId !== userId ) return res.status( 404 ).send( {message : 'Esta url pertence a outro usuário!'} );
+			await urlsRepositories.delete( {urlId} );
+			res.sendStatus( 204 );
 		} catch ( error ) {
 			return res.status( 500 ).send( {message : error.message} );
 		}

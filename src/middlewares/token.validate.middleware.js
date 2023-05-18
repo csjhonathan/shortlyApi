@@ -2,7 +2,7 @@ import  Jwt  from 'jsonwebtoken';
 
 export default function tokenValidate( req, res, next ){
 	const {authorization} = req.headers;
-	const token = authorization.split( ' ' )[1];
+	const token = authorization?.split( ' ' )[1];
 
 	if( !token || !authorization ) return res.status( 401 ).send( {message:'Token válido necessário!'} );
 
