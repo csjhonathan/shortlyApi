@@ -19,6 +19,19 @@ class UrlsControllers
 			res.status( 500 ).send( {message : error.message} );
 		}
 	}
+	async listById( req, res ){
+		const {id} = req.params;
+  
+		try {
+		
+			const {rows : [url]} = await urlsRepositories.listById( {id} );
+      
+			res.status( 201 ).send( url );
+
+		} catch ( error ) {
+			res.status( 500 ).send( {message : error.message} );
+		}
+	}
 }
 
 

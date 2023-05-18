@@ -7,5 +7,6 @@ import tokenValidate from '../middlewares/token.validate.middleware.js';
 const urlsRouters = Router();
 
 urlsRouters.post( '/urls/shorten', tokenValidate, schemaValidate( urlSchema ), urlsControllers.creat );
+urlsRouters.get( '/urls/:id', urlsControllers.listById );
 
 export default urlsRouters;

@@ -26,6 +26,18 @@ class UrlsRepositories
 
 		return db.query( query );
 	}
+
+	listById( {id} ){
+		const query = {
+			text : `
+				SELECT urls.id, urls."shortUrl", urls.url FROM urls 
+				WHERE urls.id = $1
+			`,
+			values : [id]
+		};
+
+		return db.query( query );
+	}
 }
 
 export default new UrlsRepositories;
