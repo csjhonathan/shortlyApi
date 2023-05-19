@@ -23,7 +23,8 @@ class UsersControllers
 		if ( !correctPassword ) return res.status( 401 ).send( {message : 'Senha incorreta!'} );
 
 		const payload = {id, name, email };
-		const token = Jwt.sign( payload, process.env.JWT_SECRET || 'uma-chave-publica-para-o-bot' );
+		const secretKey = process.env.JWT_SECRET || 'uma-chave-publica-para-o-bot';
+		const token = Jwt.sign( payload, secretKey );
 		
 		res.status( 200 ).send( {token} );
 	}
