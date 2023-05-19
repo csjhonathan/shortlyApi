@@ -31,10 +31,11 @@ class UsersControllers
 
 	async getMyAccess( req, res ){
 
-		const {id, name, email} = res.locals.user;
+		const {id} = res.locals.user;
 
 		try {
 			const {rows:[myRank]} = await usersRepositories.getRank( {id} );
+			if( !myRank ) console.log( 'não existo' );
 			if( !myRank.shortenedUrls ){
 				myRank.shortenedUrls = [];
 			}

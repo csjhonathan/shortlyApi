@@ -495,7 +495,6 @@ INSERT INTO public.urls VALUES (18, '2DQXCcK3obqd3MZknPKj-', 'https://www.notion
 INSERT INTO public.users VALUES (2, 'João', 'joao@driven.com.br', '$2b$10$z.RMEnaKinyo90yheGtSlOXq35FUf/UaeizltosoNdUFQ4.iFtcMi', '2023-05-18 00:00:00');
 INSERT INTO public.users VALUES (6, 'Jhon', 'jhon@driven.com.br', '$2b$10$by2G4RaZm6e80LBzceKjCO7uHanMfiG7ayeKK5tzjcF/wr/.L6PgS', '2023-05-18 00:00:00');
 INSERT INTO public.users VALUES (7, 'Jhonathan', 'jhonathan@driven.com.br', '$2b$10$D50IS2JmUHoGuRebejyMmu4JNNZGbHQExpvRCnKRw0GLMaztLzsU2', '2023-05-18 00:00:00');
-INSERT INTO public.users VALUES (12, 'Jhonathan', 'jhonathan@email.com.br', '$2b$10$N6M59JnM.O5DdQtyaDU1iOyBS/M/0LvPaUCkCEKHJZbINgnXYJFt2', '2023-05-19 12:15:33.795222');
 
 
 --
@@ -509,7 +508,7 @@ SELECT pg_catalog.setval('public.urls_id_seq', 19, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 12, true);
+SELECT pg_catalog.setval('public.users_id_seq', 13, true);
 
 
 --
