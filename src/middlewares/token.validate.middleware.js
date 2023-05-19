@@ -14,6 +14,9 @@ export default function tokenValidate( req, res, next ){
 
 		next();
 	} catch ( error ) {
+		if( error.name === 'JsonWebTokenError' ){
+			return res.status( 401 ).send( {message:'Token válido necessário!'} );
+		}
 		return res.status( 500 ).send( {message : error.message} );
 	}
 }

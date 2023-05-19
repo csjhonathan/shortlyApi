@@ -394,7 +394,7 @@ CREATE TABLE public.urls (
     url text NOT NULL,
     "creatorId" integer,
     access integer DEFAULT 0,
-    "createdAt" date DEFAULT now()
+    "createdAt" timestamp without time zone DEFAULT now()
 );
 
 
@@ -427,7 +427,7 @@ CREATE TABLE public.users (
     name character varying NOT NULL,
     email character varying NOT NULL,
     password character varying NOT NULL,
-    "createdAt" date DEFAULT now()
+    "createdAt" timestamp without time zone DEFAULT now()
 );
 
 
@@ -469,34 +469,33 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: urls; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.urls VALUES (1, 'hMVIm2soHgAdwNRzptUJ9', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 5, '2023-05-18');
-INSERT INTO public.urls VALUES (4, 'ZEr5CPUkQVEHtkbxLn6sO', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-18');
-INSERT INTO public.urls VALUES (5, 'B2xHv31ZJKTPDoQvBns_D', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (6, 'MyAPy-p6Ne9YCDHzJQw4a', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (7, 'Yb8hipQg0xbr8je9hnOjG', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (8, 'bxLMKWj9OHXqVYxt5ueX4', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (9, '13FdCGryMznD9fy0g8j0-', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (10, 'ygRUo09bzYSxQkZ8PZ6au', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (11, 'vYhPbVJM8tMRHpur2Wbae', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (12, 'qlhy0YHGXdlmasCx7_a_I', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (13, 'CN_t1R73qfG3u_Ns2kiCc', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (14, 'krb5_gJWOkSsnsBLKFgc3', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (16, 'X4KdRNyI2AwnuPXrLG4A9', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 7, 0, '2023-05-19');
-INSERT INTO public.urls VALUES (2, 'wnEajoFdHfToC1OyC7pSn', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 3, '2023-05-18');
-INSERT INTO public.urls VALUES (17, 'ZPbNdYYzC42E1_UL8Mb-6', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 1, '2023-05-19');
-INSERT INTO public.urls VALUES (19, 'qrFVbNAgvSynaGIoeZTrI', 'https://br.shein.com/SHEIN-Belle-Cold-Shoulder-Plicated-Split-Thigh-Chiffon-Bridesmaid-Dress-p-12531238-cat-3091.html?src_identifier=st%3D2%60sc%3Dmadrinha%20verde%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_goods_detail1684407177541&mallCode=1', 6, 1, '2023-05-19');
-INSERT INTO public.urls VALUES (18, '2DQXCcK3obqd3MZknPKj-', 'https://www.notion.so/bootcampra/Projeto-17-Shortly-API-f228e76e995d48a48cc84e4e5476cb71', 6, 6, '2023-05-19');
+INSERT INTO public.urls VALUES (1, 'hMVIm2soHgAdwNRzptUJ9', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 5, '2023-05-18 00:00:00');
+INSERT INTO public.urls VALUES (4, 'ZEr5CPUkQVEHtkbxLn6sO', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-18 00:00:00');
+INSERT INTO public.urls VALUES (5, 'B2xHv31ZJKTPDoQvBns_D', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (6, 'MyAPy-p6Ne9YCDHzJQw4a', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (7, 'Yb8hipQg0xbr8je9hnOjG', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (8, 'bxLMKWj9OHXqVYxt5ueX4', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (9, '13FdCGryMznD9fy0g8j0-', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (10, 'ygRUo09bzYSxQkZ8PZ6au', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (11, 'vYhPbVJM8tMRHpur2Wbae', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (12, 'qlhy0YHGXdlmasCx7_a_I', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (13, 'CN_t1R73qfG3u_Ns2kiCc', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (14, 'krb5_gJWOkSsnsBLKFgc3', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (16, 'X4KdRNyI2AwnuPXrLG4A9', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 7, 0, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (2, 'wnEajoFdHfToC1OyC7pSn', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 3, '2023-05-18 00:00:00');
+INSERT INTO public.urls VALUES (17, 'ZPbNdYYzC42E1_UL8Mb-6', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', 6, 1, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (19, 'qrFVbNAgvSynaGIoeZTrI', 'https://br.shein.com/SHEIN-Belle-Cold-Shoulder-Plicated-Split-Thigh-Chiffon-Bridesmaid-Dress-p-12531238-cat-3091.html?src_identifier=st%3D2%60sc%3Dmadrinha%20verde%60sr%3D0%60ps%3D1&src_module=search&src_tab_page_id=page_goods_detail1684407177541&mallCode=1', 6, 1, '2023-05-19 00:00:00');
+INSERT INTO public.urls VALUES (18, '2DQXCcK3obqd3MZknPKj-', 'https://www.notion.so/bootcampra/Projeto-17-Shortly-API-f228e76e995d48a48cc84e4e5476cb71', 6, 6, '2023-05-19 00:00:00');
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.users VALUES (1, 'Jhon', 'jhon#email.com', '123456', '2023-05-18');
-INSERT INTO public.users VALUES (2, 'João', 'joao@driven.com.br', '$2b$10$z.RMEnaKinyo90yheGtSlOXq35FUf/UaeizltosoNdUFQ4.iFtcMi', '2023-05-18');
-INSERT INTO public.users VALUES (6, 'Jhon', 'jhon@driven.com.br', '$2b$10$by2G4RaZm6e80LBzceKjCO7uHanMfiG7ayeKK5tzjcF/wr/.L6PgS', '2023-05-18');
-INSERT INTO public.users VALUES (7, 'Jhonathan', 'jhonathan@driven.com.br', '$2b$10$D50IS2JmUHoGuRebejyMmu4JNNZGbHQExpvRCnKRw0GLMaztLzsU2', '2023-05-18');
-INSERT INTO public.users VALUES (8, 'Everaldo', 'https://www.notion.so/Projeto-17-Shortly-API-967da70cdff540ea95a22cb934a59482', '6', '2023-05-18');
+INSERT INTO public.users VALUES (2, 'João', 'joao@driven.com.br', '$2b$10$z.RMEnaKinyo90yheGtSlOXq35FUf/UaeizltosoNdUFQ4.iFtcMi', '2023-05-18 00:00:00');
+INSERT INTO public.users VALUES (6, 'Jhon', 'jhon@driven.com.br', '$2b$10$by2G4RaZm6e80LBzceKjCO7uHanMfiG7ayeKK5tzjcF/wr/.L6PgS', '2023-05-18 00:00:00');
+INSERT INTO public.users VALUES (7, 'Jhonathan', 'jhonathan@driven.com.br', '$2b$10$D50IS2JmUHoGuRebejyMmu4JNNZGbHQExpvRCnKRw0GLMaztLzsU2', '2023-05-18 00:00:00');
+INSERT INTO public.users VALUES (12, 'Jhonathan', 'jhonathan@email.com.br', '$2b$10$N6M59JnM.O5DdQtyaDU1iOyBS/M/0LvPaUCkCEKHJZbINgnXYJFt2', '2023-05-19 12:15:33.795222');
 
 
 --
@@ -510,7 +509,7 @@ SELECT pg_catalog.setval('public.urls_id_seq', 19, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 11, true);
+SELECT pg_catalog.setval('public.users_id_seq', 12, true);
 
 
 --

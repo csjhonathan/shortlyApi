@@ -64,7 +64,7 @@ class UrlsControllers
 			const {rows : [url]} = await urlsRepositories.listById( {urlId} );
 
 			if( !url ) return res.status( 404 ).send( {message : 'Esta url não existe!'} );
-			if( url.creatorId !== userId ) return res.status( 404 ).send( {message : 'Esta url pertence a outro usuário!'} );
+			if( url.creatorId !== userId ) return res.status( 401 ).send( {message : 'Esta url pertence a outro usuário!'} );
 			await urlsRepositories.delete( {urlId} );
 			res.sendStatus( 204 );
 		} catch ( error ) {
