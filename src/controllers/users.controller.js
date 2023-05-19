@@ -23,9 +23,24 @@ class UsersControllers
 		if ( !correctPassword ) return res.status( 401 ).send( {message : 'Senha incorreta!'} );
 
 		const payload = {id, name, email };
-		const token = Jwt.sign( payload, process.env.JWT_SECRET );
+		const token = Jwt.sign( payload, process.env.JWT_SECRET || 'uma-chave-publica-para-o-bot' );
 		
 		res.status( 200 ).send( {token} );
+	}
+
+	async getMyAccess( req, res ){
+
+		const {id, name, email} = res.locals.user;
+
+		try {
+			const {rows:[myRank]} = await usersRepositories.getRank( {id} );
+			if( !myRank.shortenedUrls ){
+				myRank.shortenedUrls = [];
+			}
+			res.status( 200 ).send( myRank );
+		} catch ( error ) {
+			res.status( 500 ).send( {message : error.message} );
+		}
 	}
 }
 

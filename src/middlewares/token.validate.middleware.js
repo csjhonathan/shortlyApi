@@ -8,7 +8,7 @@ export default function tokenValidate( req, res, next ){
 
 	try {
 
-		const {id, name, email} = Jwt.verify( token, process.env.JWT_SECRET );
+		const {id, name, email} = Jwt.verify( token, process.env.JWT_SECRET || 'uma-chave-publica-para-o-bot' );
 		res.locals.user = {id, name, email};
 
 		next();
