@@ -9,7 +9,7 @@ class UrlsControllers
 
 
 		try {
-			const urlReference = nanoid();
+			const urlReference = nanoid( 5 );
 
 			await urlsRepositories.create( {urlReference, url, id} );
 			const {rows : [newUrl]} = await urlsRepositories.listByRef( {urlReference} );
@@ -50,7 +50,7 @@ class UrlsControllers
 
 			await urlsRepositories.update( {urlReference} );
 
-			return res.redirect( shortedUrl.url );
+			return res.redirect( 200,shortedUrl.url );
 		} catch ( error ) {
 			return res.status( 500 ).send( {message : error.message} );
 		}

@@ -37,7 +37,7 @@ class UsersRepositories
 			SELECT u.id, u.name, COALESCE(SUM(ul.access),0) AS "visitCount",
 				CASE
 					WHEN COUNT(ul.id) > 0
-					THEN json_agg(json_build_object('id', ul.id, 'shortUrl', ul."shortUrl", 'url', ul.url, 'visitCount', ul.access))
+					THEN json_agg(json_build_object('id', ul.id, 'shortUrl', ul."shortUrl", 'url', ul.url, 'visitCount', ul.access) ORDER BY ul.id DESC)
 					ELSE NULL
 				END AS "shortenedUrls"
 				FROM users u
