@@ -50,7 +50,7 @@ class UrlsControllers
 
 			await urlsRepositories.update( {urlReference} );
 
-			return res.redirect( 200,shortedUrl.url );
+			return res.redirect( shortedUrl.url );
 		} catch ( error ) {
 			return res.status( 500 ).send( {message : error.message} );
 		}
